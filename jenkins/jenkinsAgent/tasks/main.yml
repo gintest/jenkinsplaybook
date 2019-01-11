@@ -1,0 +1,28 @@
+---
+# tasks file for jenkinsAgent
+
+- name: setting up slave in jenkins
+  shell: | 
+     cat << EOF | java -jar jenkins-cli.jar -s "http://localhost:8080" -auth jenkinsuser:toor create-node Slave1
+     <slave>
+     <name>{{name}}</name>
+     <description></description>
+     <remoteFS>/home/jenkins</remoteFS>
+     <numExecutors>{{exec}}</numExecutors>
+     <mode>NORMAL</mode>
+     <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
+     <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.10">
+     <host>{{host}}</host>
+     <port>{{port}}</port>
+     <username>{{username}}</username>
+     <password>{{password}}</password>
+     <maxNumRetries>0</maxNumRetries>
+     <sshHostKeyVerificationStrategy class="{{sshHostKeyVerificationStrategy}}"/>
+     <retryWaitTime>{{retrywait}}</retryWaitTime>
+     </launcher>
+     <label>{{label}}</label>
+     <nodeProperties/>
+     <userId>{{userid}}</userId>
+     </slave>
+     EOF
+    
