@@ -1,7 +1,6 @@
-jenkins master and slave installation playbook
+<h1>jenkins master and slave installation </h1>
 
 NOTE: to install jenkins directly without generating password, follow below:
-
 
 executing Jenkins without security screen:
 java -Djenkins.install.runSetupWizard=false -jar jenkins.war 
