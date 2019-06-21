@@ -1,4 +1,4 @@
-<h1>jenkins master and slave installation </h1>
+<h1>jenkins master and slave installation Playbook</h1>
 
 NOTE: to install jenkins directly without generating password, follow below:
 
